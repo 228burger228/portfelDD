@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>228burger228 — Design, Frontend & Digital Products</title>
+  <meta name="description" content="228burger228 — Full-Stack Designer & Developer. Проектирование цифровых продуктов, разработка, дизайн и продакт-стратегия.">
+  <meta property="og:title" content="228burger228 — Design & Development">
+  <meta property="og:description" content="Дизайн, разработка и продакт-стратегия для цифровых продуктов">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container header__inner">
+    <a class="logo" href="#">
+      <span class="logo__mark">✦</span>
+      <span>228burger228</span>
+    </a>
+
+    <nav class="nav">
+      <a class="nav__link nav__link--active" href="#home">Главная</a>
+      <a class="nav__link" href="#projects">Проекты</a>
+      <a class="nav__link" href="#services">Услуги</a>
+      <a class="nav__link" href="#about">О нас</a>
+      <a class="nav__link" href="#contacts">Контакты</a>
+    </nav>
+
+    <div class="header__right">
+      <div class="header__caption">
+        Идея. Дизайн. Код.<br>
+        Работаем одной командой.
+      </div>
+      <a class="button button--dark button--small" href="#contacts">
+        <span>✉</span> Оставить заявку
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero__background"></div>
+  <div class="container hero__content">
+
+    <article class="person-card person-card--left">
+      <div class="person-card__top">
+        <div class="avatar avatar--designer">Д</div>
+        <div>
+          <strong>Дмитрий</strong>
+          <span>Дизайнер / Frontend</span>
+        </div>
+      </div>
+      <p>Создаю визуал, который говорит сам за себя. Дизайн, интерфейсы, брендинг. Люблю минимализм и функциональность.</p>
+      <div class="tags">
+        <span>Figma</span><span>HTML/CSS/JS</span><span>React</span>
+        <span>UI/UX</span><span>Branding</span>
+      </div>
+    </article>
+
+    <div class="hero__main">
+      <h1>Делаем цифровые<br>продукты, которые<br>работают на людей</h1>
+      <div class="hero__meta">Дизайн <b>×</b> Разработка <b>×</b> Продакт</div>
+      <a class="button button--glass" href="#contacts">Обсудить проект <span>→</span></a>
+    </div>
+
+    <article class="person-card person-card--right">
+      <div class="person-card__top">
+        <div class="avatar avatar--developer">👨‍💻</div>
+        <div>
+          <strong>Дмитрий</strong>
+          <span>Full-Stack Developer</span>
+        </div>
+      </div>
+      <p>Full-Stack разработчик и архитектор. Next.js, TypeScript, PostgreSQL, Telegram Bots, AI. Создаю высоконагруженные системы.</p>
+      <div class="tags">
+        <span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span>
+        <span>Telegram Bots</span><span>DevOps</span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="section section--problems" id="services">
+  <div class="container">
+    <div class="eyebrow">Компетенции</div>
+    <h2>Что решаем</h2>
+    <p class="section-intro">
+      Помогаем запустить продукт, упаковать идею визуально, автоматизировать процессы и развить то, что уже работает.
+    </p>
+
+    <div class="cards cards--four">
+      <article class="info-card">
+        <div class="icon icon--blue">◉</div>
+        <h3>Запустить продукт</h3>
+        <p>Сайт, бот или веб-приложение с понятной ценностью и готовым сценарием запуска.</p>
+      </article>
+      <article class="info-card">
+        <div class="icon icon--pink">⌁</div>
+        <h3>Упаковать идею</h3>
+        <p>Дизайн, брендинг и контент, которые быстро объясняют ценность продукта.</p>
+      </article>
+      <article class="info-card">
+        <div class="icon icon--green">➤</div>
+        <h3>Автоматизировать</h3>
+        <p>Боты, процессы и системы, которые экономят время и делают работу предсказуемой.</p>
+      </article>
+      <article class="info-card">
+        <div class="icon icon--cyan">‹›</div>
+        <h3>Развить существующее</h3>
+        <p>Доработка, поддержка и масштабирование продуктов, требующих нового качества.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--portfolio" id="projects">
+  <div class="container">
+    <div class="eyebrow">Портфолио</div>
+    <h2>Наши проекты</h2>
+    <p class="section-intro">
+      Доказательства компетенций: сайты, боты, дизайн и проекты, помогающие бизнесу расти.
+    </p>
+
+    <div class="cards cards--four">
+      <article class="info-card portfolio-card" data-modal="websites">
+        <img src="./assets/icons/Запустить продукт.png" alt="Сайты" class="card-icon">
+        <h3>Сайты</h3>
+        <p>Лендинги, корпоративные сайты, интернет-магазины и веб-приложения с понятным сценарием.</p>
+        <div class="pills"><span>Лендинги</span><span>Корпоративные</span><span>E-commerce</span></div>
+      </article>
+      <article class="info-card portfolio-card" data-modal="bots">
+        <img src="./assets/icons/Автоматизировать.png" alt="Боты" class="card-icon">
+        <h3>Боты и автоматизация</h3>
+        <p>Telegram, Discord, CRM и процессы, помогающие экономить время и снижать ручной объём.</p>
+        <div class="pills"><span>Telegram</span><span>Discord</span><span>CRM</span></div>
+      </article>
+      <article class="info-card portfolio-card" data-modal="design">
+        <img src="./assets/icons/Упаковать идею.png" alt="Дизайн" class="card-icon">
+        <h3>Дизайн и брендинг</h3>
+        <p>Логотипы, айдентика, UI/UX и визуальные решения, делающие продукт заметным.</p>
+        <div class="pills"><span>Брендинг</span><span>UI/UX</span><span>Логотипы</span></div>
+      </article>
+      <article class="info-card portfolio-card" data-modal="content">
+        <img src="./assets/icons/Контент и соцсети.png" alt="Контент" class="card-icon">
+        <h3>Контент и соцсети</h3>
+        <p>Постинг, дизайн контента, креативы и управление страницами для вовлечения аудитории.</p>
+        <div class="pills"><span>Контент</span><span>Креативы</span><span>Соцсети</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- МОДАЛЬНЫЕ ОКНА -->
+<div class="modal" id="modal-websites">
+  <div class="modal__overlay"></div>
+  <div class="modal__content">
+    <button class="modal__close" data-close="modal-websites">&times;</button>
+    <img src="./assets/icons/icon-wrap.png" alt="Сайты" class="modal__icon">
+    <h2>Сайты</h2>
+    <div class="modal__links">
+      <a href="#" class="modal__link">HG строй</a>
+      <a href="#" class="modal__link">Портфолио 1</a>
+      <a href="#" class="modal__link">Портфолио 2</a>
+      <a href="#" class="modal__link">E-commerce</a>
+      <a href="#" class="modal__link">Лендинги</a>
+      <a href="#" class="modal__link">Корпоративные</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-bots">
+  <div class="modal__overlay"></div>
+  <div class="modal__content">
+    <button class="modal__close" data-close="modal-bots">&times;</button>
+    <img src="./assets/icons/icon-wrap.png" alt="Боты" class="modal__icon">
+    <h2>Боты и автоматизация</h2>
+    <div class="modal__links">
+      <a href="#" class="modal__link">SMM AI-Agent Bot</a>
+      <a href="#" class="modal__link">SchoolHW Bot</a>
+      <a href="#" class="modal__link">VPN Bot</a>
+      <a href="#" class="modal__link">CRM интеграции</a>
+      <a href="#" class="modal__link">Telegram системы</a>
+      <a href="#" class="modal__link">Discord боты</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-design">
+  <div class="modal__overlay"></div>
+  <div class="modal__content">
+    <button class="modal__close" data-close="modal-design">&times;</button>
+    <img src="./assets/icons/icon-wrap.png" alt="Дизайн" class="modal__icon">
+    <h2>Дизайн и брендинг</h2>
+    <div class="modal__links">
+      <a href="#" class="modal__link">VPN Product Design</a>
+      <a href="#" class="modal__link">UI Kit</a>
+      <a href="#" class="modal__link">Брендинг проектов</a>
+      <a href="#" class="modal__link">Логотипы</a>
+      <a href="#" class="modal__link">Айдентика</a>
+      <a href="#" class="modal__link">Web Design</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-content">
+  <div class="modal__overlay"></div>
+  <div class="modal__content">
+    <button class="modal__close" data-close="modal-content">&times;</button>
+    <img src="./assets/icons/icon-wrap.png" alt="Контент" class="modal__icon">
+    <h2>Контент и соцсети</h2>
+    <div class="modal__links">
+      <a href="#" class="modal__link">SMM контент</a>
+      <a href="#" class="modal__link">Креативы</a>
+      <a href="#" class="modal__link">Копирайтинг</a>
+      <a href="#" class="modal__link">Стратегия</a>
+      <a href="#" class="modal__link">Баннеры</a>
+      <a href="#" class="modal__link">Рефлешер</a>
+    </div>
+  </div>
+</div>
+
+<section class="section section--team" id="about">
+  <div class="container">
+    <div class="eyebrow">Команда</div>
+    <h2>Кто мы</h2>
+    <p class="section-intro">
+      Дизайнер и разработчик работают вместе. Идея становится продуктом быстро и без лишних переходов.
+    </p>
+
+    <div class="team-grid">
+      <article class="team-card">
+        <div class="person-card__top">
+          <div class="avatar avatar--designer">Д</div>
+          <div><strong>Дмитрий</strong><span>Дизайнер / Frontend</span></div>
+        </div>
+        <p>Создаю визуал, который работает. Сайты, интерфейсы, бренды. Специалист в Figma, React, UI/UX.</p>
+        <div class="tags"><span>Figma</span><span>HTML/CSS/JS</span><span>React</span><span>UI/UX</span></div>
+        <p class="team-card__role">Отвечаю за визуальную часть и интерфейсы. Делаю продукт понятным и красивым.</p>
+      </article>
+
+      <article class="team-card">
+        <div class="person-card__top">
+          <div class="avatar avatar--developer">👨‍💻</div>
+          <div><strong>Дмитрий</strong><span>Разработчик / Backend</span></div>
+        </div>
+        <p>Пишу надёжный, масштабируемый код. Full-Stack разработка, архитектура систем, DevOps.</p>
+        <div class="tags"><span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>DevOps</span></div>
+        <p class="team-card__role">Отвечаю за код и инфраструктуру. Делаю продукт быстрым, надёжным и масштабируемым.</p>
+      </article>
+    </div>
+
+    <div class="together">
+      <h3>Сильнее вместе</h3>
+      <p>Когда дизайн и разработка работают в одной команде, проекты выходят быстрее, и решения становятся более целостными.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--trust" id="trust">
+  <div class="container">
+    <div class="eyebrow">Опыт</div>
+    <h2>Кому мы помогали</h2>
+    <p class="section-intro">
+      Проекты, которые помогают бизнесу и авторам расти. Реальные кейсы, реальные результаты.
+    </p>
+
+    <div class="team-grid">
+      <article class="trust-card">
+        <div class="trust-card__title">
+          <div class="icon icon--blue">◉</div>
+          <div><h3>SaaS-продукты</h3><span>VPN Platform, Admin Panels</span></div>
+        </div>
+        <p>Проектирование и разработка full-stack SaaS-решений с авторизацией, управлением ключами и админ-панелями для управления пользователями.</p>
+        <div class="pills"><span>Next.js</span><span>PostgreSQL</span><span>RBAC</span><span>Dashboard</span></div>
+      </article>
+
+      <article class="trust-card">
+        <div class="trust-card__title">
+          <div class="icon icon--pink">⌁</div>
+          <div><h3>Telegram Боты</h3><span>AI Agents, SMM Automation</span></div>
+        </div>
+        <p>Разработка высоконагруженных Telegram-ботов с AI-интеграцией, vector embeddings для дедупликации, модерацией и управлением состояниями.</p>
+        <div class="pills"><span>grammY</span><span>AI/LLM</span><span>Vector DB</span><span>Automation</span></div>
+      </article>
+    </div>
+
+    <div class="together">
+      <h3>От идеи к запуску</h3>
+      <p>Полный цикл разработки: концепция, дизайн, разработка, тестирование, деплой. Работаем с ранними стартапами и масштабируемыми продуктами.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contacts">
+  <div class="container">
+    <h2>Готовы начать?</h2>
+    <a class="button button--dark" href="mailto:hello@example.com">Обсудить проект <span>→</span></a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="logo"><span class="logo__mark">✦</span><span>228burger228</span></div>
+    <span class="footer__muted">Делаем цифровые продукты, которые работают</span>
+    <span class="footer__center">Дизайн × Разработка × Продакт</span>
+    <a class="button button--light button--small" href="mailto:hello@example.com">Написать <span>→</span></a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
