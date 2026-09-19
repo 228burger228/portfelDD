@@ -1397,157 +1397,42 @@ h2 {
    ========================================================================== */
 
 .modal__content--letter {
-  max-width: 780px;
-  background: #fafaf8;
-  padding: 36px;
-}
-
-.letterhead {
+  max-width: 760px;
   background: #ffffff;
-  border: 1px solid #e0e0dc;
+  padding: 32px 28px 24px;
+  text-align: center;
+}
+
+.modal__letter-wrap {
+  max-height: 75vh;
+  overflow-y: auto;
   border-radius: 8px;
-  padding: 40px;
-  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.06);
-  position: relative;
+  border: 1px solid #e6e6e3;
+  background: #fbfbfa;
+  padding: 12px;
+  margin-bottom: 20px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.03);
 }
 
-.letterhead__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding-bottom: 24px;
-  border-bottom: 2px solid #111827;
-  margin-bottom: 30px;
-  gap: 20px;
-}
-
-.letterhead__company {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-}
-
-.letterhead__crest {
-  font-size: 32px;
-}
-
-.letterhead__company h3 {
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  color: #0f172a;
-  margin-bottom: 3px;
-}
-
-.letterhead__meta {
-  font-size: 11px;
-  color: #64748b;
+.letter-img {
+  max-width: 100%;
+  height: auto;
   display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease;
 }
 
-.letterhead__doc-num {
-  text-align: right;
-  font-size: 11px;
-  color: #475569;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  font-weight: 600;
-}
-
-.letterhead__title {
-  text-align: center;
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  color: #0f172a;
-  margin-bottom: 12px;
-}
-
-.letterhead__addressed {
-  text-align: center;
-  font-size: 13px;
-  font-weight: 600;
-  color: #475569;
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-.letterhead__text {
-  font-size: 14px;
-  color: #334155;
-  line-height: 1.7;
-  margin-bottom: 16px;
-  text-align: justify;
-}
-
-.letterhead__list {
-  margin: 16px 0 24px 20px;
-  font-size: 13.5px;
-  color: #334155;
-  line-height: 1.6;
-}
-
-.letterhead__list li {
-  margin-bottom: 6px;
-}
-
-.letterhead__footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 36px;
-  padding-top: 24px;
-  border-top: 1px solid #e2e8f0;
-}
-
-.letterhead__sign strong {
-  display: block;
-  font-size: 13px;
-  color: #0f172a;
-}
-
-.letterhead__signature {
-  font-family: 'Brush Script MT', cursive, italic;
-  font-size: 18px;
-  color: #1e3a8a;
-  margin-top: 6px;
-  display: inline-block;
-}
-
-.official-seal {
-  width: 90px;
-  height: 90px;
-  border: 2.5px dashed #1e40af;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #1e40af;
-  font-size: 8px;
-  font-weight: 800;
-  text-align: center;
-  padding: 4px;
-  transform: rotate(-12deg);
-  opacity: 0.85;
-  line-height: 1.2;
-}
-
-.official-seal small {
-  font-size: 7px;
-  margin: 2px 0;
-  border-top: 1px solid #1e40af;
-  border-bottom: 1px solid #1e40af;
-  padding: 1px 4px;
+.letter-img:hover {
+  transform: scale(1.01);
 }
 
 .letterhead__actions {
   display: flex;
   gap: 12px;
   justify-content: center;
-  margin-top: 24px;
+  flex-wrap: wrap;
 }
 
 /* ==========================================================================
