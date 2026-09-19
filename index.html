@@ -3,324 +3,1143 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>228burger228 — Full-Stack Developer & Telegram Systems Architect</title>
-  <meta name="description" content="Full-Stack & Telegram Systems Developer. 15+ проектов в production. Next.js, TypeScript, PostgreSQL, AI/LLM, Telegram-боты, SaaS. HgStroy (95+ Lighthouse), Город Мастеров, SkillForge, VPN Platform.">
-  <meta property="og:title" content="Дмитрий (228burger228) — Full-Stack Developer & Product Technical Lead">
-  <meta property="og:description" content="Проектирую системы, которые масштабируются и работают надёжно. 15+ успешных проектов. Next.js, Telegram AI, Vector Embeddings, SaaS-платформы.">
+  <title>228burger228 — Dmitry (Burger) | Design-Driven Product & Technical Studio</title>
+  <meta name="description" content="Создаём продукты от концепции до production. Дмитрий (Burger) — Design-Driven Product & Technical Lead, и Дима (Mikerro) — Full-Stack & Telegram Systems Developer. 15+ проектов в проде, 95+ Lighthouse.">
+  <meta property="og:title" content="228burger228 — Dmitry (Burger) & Mikerro | Дизайн и разработка цифровых систем">
+  <meta property="og:description" content="Координирую дизайнеров, разработчиков и стейкхолдеров. Превращаю хаос в продукты. 15+ проектов в production.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="header">
+<!-- SCROLL PROGRESS BAR -->
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+<!-- HEADER -->
+<header class="header" id="header">
   <div class="container header__inner">
-    <a class="logo" href="#">
+    <a class="logo" href="#home">
       <span class="logo__mark">✦</span>
-      <span>228burger228</span>
+      <span class="logo__text">228burger228</span>
+      <span class="status-indicator" title="Открыт к новым проектам">
+        <span class="status-indicator__dot"></span>
+        <span class="status-indicator__text">Available</span>
+      </span>
     </a>
 
-    <nav class="nav">
+    <nav class="nav" id="main-nav">
       <a class="nav__link nav__link--active" href="#home">Главная</a>
-      <a class="nav__link" href="#projects">Проекты</a>
       <a class="nav__link" href="#services">Услуги</a>
+      <a class="nav__link" href="#projects">Проекты</a>
       <a class="nav__link" href="#about">О нас</a>
+      <a class="nav__link" href="#trust">Опыт</a>
+      <a class="nav__link" href="#faq">FAQ</a>
       <a class="nav__link" href="#contacts">Контакты</a>
     </nav>
 
     <div class="header__right">
       <div class="header__caption">
-        Full-Stack & Telegram<br>
-        Systems Developer
+        Design-Driven Product<br>
+        &amp; Systems Studio
       </div>
-      <a class="button button--dark button--small" href="https://t.me/aimovl" target="_blank">
-        <span>✉</span> Написать боту
+      <a class="button button--dark button--small" href="https://t.me/aimovl" target="_blank" rel="noopener">
+        <span>✉</span> Обсудить проект
       </a>
+      <button class="mobile-burger" id="mobile-burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </div>
 </header>
 
+<!-- MOBILE MENU DRAWER -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu__inner">
+    <nav class="mobile-menu__nav">
+      <a class="mobile-menu__link" href="#home">Главная</a>
+      <a class="mobile-menu__link" href="#services">Что решаем</a>
+      <a class="mobile-menu__link" href="#projects">Наши проекты</a>
+      <a class="mobile-menu__link" href="#about">О нас (Команда)</a>
+      <a class="mobile-menu__link" href="#trust">Кто нам доверяет</a>
+      <a class="mobile-menu__link" href="#faq">Частые вопросы</a>
+      <a class="mobile-menu__link" href="#contacts">Контакты</a>
+    </nav>
+    <div class="mobile-menu__footer">
+      <div class="mobile-menu__status">
+        <span class="status-indicator__dot"></span>
+        <span>Открыты к новым заказам</span>
+      </div>
+      <a class="button button--dark" href="https://t.me/aimovl" target="_blank" rel="noopener" style="width:100%; text-align:center;">
+        Написать Дмитрию в Telegram →
+      </a>
+    </div>
+  </div>
+</div>
+
 <main>
 
+<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero__background"></div>
   <div class="container hero__content">
 
+    <!-- LEFT PERSON CARD: ДМИТРИЙ (BURGER) - LEAD DESIGNER -->
     <article class="person-card person-card--left">
+      <div class="person-card__badge">Lead Designer &amp; Product Lead</div>
       <div class="person-card__top">
-        <img src="./assets/images/Burgerlogo.jpg" alt="Burger Logo" class="avatar" style="border-radius: 50%; object-fit: cover; width: 36px; height: 36px;">
+        <img src="./assets/images/Burgerlogo.jpg" alt="Дмитрий (Burger)" class="avatar" loading="eager">
         <div>
           <strong>Дмитрий</strong>
-          <span>Product & Technical Lead</span>
+          <span>Дизайнер / Product Lead</span>
         </div>
       </div>
-      <p>Координирую дизайнеров, разработчиков и стейкхолдеров. Превращаю хаос в продукты. 15+ проектов в production.</p>
+      <p>Создаю продукты от концепции до production. Объединяю команды. Превращаю хаос в продукты. 15+ проектов в проде.</p>
       <div class="tags">
-        <span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span>
-        <span>Telegram Bots</span><span>Product Lead</span>
+        <span>Figma</span>
+        <span>UI/UX</span>
+        <span>Branding</span>
+        <span>Design Systems</span>
+        <span>Product Lead</span>
       </div>
     </article>
 
+    <!-- HERO MAIN CENTER -->
     <div class="hero__main">
-      <h1>Проектирую системы,<br>которые масштабируются<br>и работают надёжно</h1>
-      <div class="hero__meta">Next.js <b>×</b> TypeScript <b>×</b> Telegram AI</div>
-      <a class="button button--glass" href="https://t.me/aimovl" target="_blank">Обсудить проект <span>→</span></a>
-    </div>
+      <div class="hero__eyebrow-pill">
+        <span class="hero__eyebrow-dot"></span>
+        <span>Boutique Design &amp; Systems Studio</span>
+      </div>
+      <h1>Делаем цифровые продукты,<br>которые работают на людей</h1>
+      <div class="hero__meta">Дизайн <b>×</b> Разработка <b>×</b> Контент</div>
+      <div class="hero__actions">
+        <a class="button button--glass" href="https://t.me/aimovl" target="_blank" rel="noopener">
+          Обсудить проект <span>→</span>
+        </a>
+        <a class="button button--glass-subtle" href="#projects">
+          Смотреть кейсы
+        </a>
+      </div>
 
-    <article class="person-card person-card--right">
-      <div class="person-card__top">
-        <img src="./assets/images/MikerrOlogo.jpg" alt="Mikkerr Logo" class="avatar" style="border-radius: 50%; object-fit: cover; width: 36px; height: 36px;">
-        <div>
-          <strong>Дмитрий</strong>
-          <span>Full-Stack Architect</span>
+      <!-- TRUST STATS COUNTER -->
+      <div class="hero__stats">
+        <div class="stat-pill">
+          <strong class="stat-pill__num" data-count="15">15+</strong>
+          <span class="stat-pill__lbl">В продакшне</span>
+        </div>
+        <div class="stat-pill">
+          <strong class="stat-pill__num" data-count="95">95+</strong>
+          <span class="stat-pill__lbl">Lighthouse</span>
+        </div>
+        <div class="stat-pill">
+          <strong class="stat-pill__num" data-count="10">10k+</strong>
+          <span class="stat-pill__lbl">Аудитория</span>
+        </div>
+        <div class="stat-pill">
+          <strong class="stat-pill__num">2</strong>
+          <span class="stat-pill__lbl">Гос. проекта</span>
         </div>
       </div>
-      <p>Проектирую высоконагруженные системы. Next.js, Prisma ORM, PostgreSQL, Redis, Vector AI. SaaS-платформы и Telegram-боты.</p>
+    </div>
+
+    <!-- RIGHT PERSON CARD: ДИМА (MIKERRO) - FULL-STACK DEVELOPER -->
+    <article class="person-card person-card--right">
+      <div class="person-card__badge person-card__badge--tech">Специалист агентства &amp; Tech Lead</div>
+      <div class="person-card__top">
+        <img src="./assets/images/MikerrOlogo.jpg" alt="Дима (Mikerro)" class="avatar avatar--developer" loading="eager">
+        <div>
+          <strong>Дима</strong>
+          <span>Разработчик / Backend</span>
+        </div>
+      </div>
+      <p>Сотрудник агентства. Next.js, TypeScript, PostgreSQL, Prisma. Telegram-боты с AI (Embeddings, LLM) и масштабируемые системы.</p>
       <div class="tags">
-        <span>Architecture</span><span>DevOps</span><span>AI/LLM</span>
-        <span>Redis</span><span>Infrastructure</span>
+        <span>Next.js</span>
+        <span>TypeScript</span>
+        <span>PostgreSQL</span>
+        <span>Telegram AI</span>
+        <span>Docker</span>
+        <span>Zod</span>
       </div>
     </article>
 
   </div>
 </section>
 
+<!-- SECTION: ЧТО РЕШАЕМ (ЗАДАЧИ КЛИЕНТА) -->
 <section class="section section--problems" id="services">
   <div class="container">
-    <div class="eyebrow">Компетенции</div>
-    <h2>Что я делаю</h2>
+    <div class="eyebrow">&gt; ЗАДАЧИ КЛИЕНТА</div>
+    <h2>Что решаем</h2>
     <p class="section-intro">
-      Full-Stack разработка, архитектура систем, Telegram-боты с AI, SaaS-платформы, DevOps. Объединяю требования, код и результаты в одно целое.
+      Мы помогаем запустить продукт, упаковать сложную идею, автоматизировать процессы и развить то, что уже работает. Превращаем хаос в систему.
     </p>
 
     <div class="cards cards--four">
+      
+      <!-- CARD 1: ЗАПУСТИТЬ ПРОДУКТ -->
       <article class="info-card">
-        <img src="./assets/icons/icon-wrap.png" alt="Full-Stack" class="card-icon">
-        <h3>Full-Stack системы</h3>
-        <p>Next.js, TypeScript, PostgreSQL, Prisma ORM. Создаю масштабируемые веб-приложения и SaaS-платформы с полным контролем архитектуры.</p>
+        <div class="icon icon--blue">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        </div>
+        <h3>Запустить продукт</h3>
+        <p>Сайт, веб-сервис или Telegram-бот под ключ: от идеи и продуктового UI/UX до production-релиза и первых пользователей.</p>
+        <div class="card-outcome">Результат: MVP за 2–3 недели с чистым кодом</div>
+        <div class="pills">
+          <span>MVP</span>
+          <span>Под ключ</span>
+          <span>Сроки</span>
+        </div>
       </article>
+
+      <!-- CARD 2: УПАКОВАТЬ ИДЕЮ -->
       <article class="info-card">
-        <img src="./assets/icons/Автоматизировать.png" alt="Telegram-боты" class="card-icon">
-        <h3>Telegram-боты & AI</h3>
-        <p>Высоконагруженные Telegram-боты с grammY, OpenAI/Gemini API, vector embeddings. Автоматизация, AI-модерация, умное хранилище.</p>
+        <div class="icon icon--pink">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+        </div>
+        <h3>Упаковать идею</h3>
+        <p>Дизайн, айдентика и визуальная логика, понятные инвесторам, клиентам и команде. Создаём UI/UX, который продаёт ценность продукта.</p>
+        <div class="card-outcome">Результат: готовый брендбук и кликабельный прототип</div>
+        <div class="pills">
+          <span>UI/UX</span>
+          <span>Айдентика</span>
+          <span>Figma</span>
+        </div>
       </article>
+
+      <!-- CARD 3: АВТОМАТИЗИРОВАТЬ -->
       <article class="info-card">
-        <img src="./assets/icons/Упаковать идею.png" alt="Архитектура" class="card-icon">
-        <h3>Архитектура & DevOps</h3>
-        <p>Проектирование систем с RBAC, Redis, Cloudflare, Railway, Vercel. Failover логика, кэширование, безопасность и мониторинг.</p>
+        <div class="icon icon--green">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </div>
+        <h3>Автоматизировать</h3>
+        <p>Telegram-боты с AI, семантический поиск (Vector Embeddings), ИИ-модерация контента и связки с CRM, убирающие рутину и хаос.</p>
+        <div class="card-outcome">Результат: экономия до 20 часов рутины в неделю</div>
+        <div class="pills">
+          <span>Telegram AI</span>
+          <span>LLM</span>
+          <span>CRM</span>
+        </div>
       </article>
+
+      <!-- CARD 4: РАЗВИТЬ СУЩЕСТВУЮЩЕЕ -->
       <article class="info-card">
-        <img src="./assets/icons/Контент и соцсети.png" alt="Product Lead" class="card-icon">
-        <h3>Product Lead роль</h3>
-        <p>Координирую требования, дизайн и разработку. Превращаю хаос в понятные продукты с ясными сценариями запуска и KPI.</p>
+        <div class="icon icon--cyan">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+        </div>
+        <h3>Развить существующее</h3>
+        <p>Редизайн, масштабирование, ускорение до 95+ Lighthouse, переход на строгую типизацию (Type-Safe) и надежную архитектуру без багов.</p>
+        <div class="card-outcome">Результат: загрузка &lt; 1 сек и рост конверсии</div>
+        <div class="pills">
+          <span>Редизайн</span>
+          <span>95+ Lighthouse</span>
+          <span>Масштаб</span>
+        </div>
       </article>
+
     </div>
   </div>
 </section>
 
+<!-- SECTION: НАШИ ПРОЕКТЫ (ПОРТФОЛИО) -->
 <section class="section section--portfolio" id="projects">
   <div class="container">
-    <div class="eyebrow">Портфолио</div>
+    <div class="eyebrow">&gt; ПОРТФОЛИО</div>
     <h2>Наши проекты</h2>
     <p class="section-intro">
-      Доказательства компетенций: сайты, боты, дизайн и проекты, помогающие бизнесу расти.
+      Доказательства компетенций: сайты, боты, дизайн и реальные системы, помогающие бизнесу и авторам расти. Нажмите на карточку, чтобы открыть кейсы с мини-скриншотами и ссылками.
     </p>
 
     <div class="cards cards--four">
-      <article class="info-card portfolio-card" data-modal="websites">
-        <img src="./assets/icons/icon-wrap.png" alt="Сайты" class="card-icon">
-        <h3>Сайты</h3>
-        <p>Лендинги, корпоративные сайты, интернет-магазины и веб-приложения с понятным сценарием.</p>
-        <div class="pills"><span>Лендинги</span><span>Корпоративные</span><span>E-commerce</span></div>
+      
+      <!-- CARD: САЙТЫ -->
+      <article class="info-card portfolio-card" data-modal="websites" tabindex="0">
+        <div class="icon icon--blue">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        </div>
+        <div class="card-count-badge">9 кейсов</div>
+        <h3>Сайты &amp; Веб-системы</h3>
+        <p>Лендинги, корпоративные порталы, государственные платформы и веб-приложения с понятным сценарием.</p>
+        <div class="pills">
+          <span>HgStroy 95+</span>
+          <span>Город Мастеров</span>
+          <span>Warpath Wiki</span>
+          <span>SkillForge</span>
+        </div>
+        <span class="card-action-link">Смотреть с мини-скриншотами →</span>
       </article>
-      <article class="info-card portfolio-card" data-modal="bots">
-        <img src="./assets/icons/Автоматизировать.png" alt="Боты" class="card-icon">
+
+      <!-- CARD: БОТЫ -->
+      <article class="info-card portfolio-card" data-modal="bots" tabindex="0">
+        <div class="icon icon--green">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </div>
+        <div class="card-count-badge">5 кейсов</div>
         <h3>Боты и автоматизация</h3>
-        <p>Telegram, Discord, CRM и процессы, помогающие экономить время и снижать ручной объём.</p>
-        <div class="pills"><span>Telegram</span><span>Discord</span><span>CRM</span></div>
+        <p>Telegram-боты с AI, серверлесс-ассистенты, SaaS-платформы, CRM и процессы, снижающие ручной объём.</p>
+        <div class="pills">
+          <span>Dmitry OS Agent</span>
+          <span>VPN Platform</span>
+          <span>SMM AI-Agent</span>
+        </div>
+        <span class="card-action-link">Смотреть с кодом и демо →</span>
       </article>
-      <article class="info-card portfolio-card" data-modal="design">
-        <img src="./assets/icons/Упаковать идею.png" alt="Дизайн" class="card-icon">
+
+      <!-- CARD: ДИЗАЙН -->
+      <article class="info-card portfolio-card" data-modal="design" tabindex="0">
+        <div class="icon icon--pink">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+        </div>
+        <div class="card-count-badge">7 кейсов</div>
         <h3>Дизайн и брендинг</h3>
-        <p>Логотипы, айдентика, UI/UX и визуальные решения, делающие продукт заметным.</p>
-        <div class="pills"><span>Брендинг</span><span>UI/UX</span><span>Логотипы</span></div>
+        <p>Логотипы, дизайн-системы в Figma, UI/UX веб- и мобильных интерфейсов, упаковка продукции и айдентика.</p>
+        <div class="pills">
+          <span>VPN UX/UI</span>
+          <span>Eco-Step</span>
+          <span>Midnight Choice</span>
+          <span>РГБ BIM</span>
+        </div>
+        <span class="card-action-link">Смотреть макеты в Figma →</span>
       </article>
-      <article class="info-card portfolio-card" data-modal="content">
-        <img src="./assets/icons/Контент и соцсети.png" alt="Контент" class="card-icon">
-        <h3>Контент и соцсети</h3>
-        <p>Постинг, дизайн контента, креативы и управление страницами для вовлечения аудитории.</p>
-        <div class="pills"><span>Контент</span><span>Креативы</span><span>Соцсети</span></div>
+
+      <!-- CARD: КОНТЕНТ -->
+      <article class="info-card portfolio-card" data-modal="content" tabindex="0">
+        <div class="icon icon--orange">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+        </div>
+        <div class="card-count-badge">4 кейса</div>
+        <h3>Контент и сообщества</h3>
+        <p>Официальные базы знаний, YouTube-каналы, Rich-контент для маркетплейсов и социальные медиа-паки.</p>
+        <div class="pills">
+          <span>10k+ игроков</span>
+          <span>YouTube 20k+</span>
+          <span>WB Rich</span>
+        </div>
+        <span class="card-action-link">Смотреть материалы →</span>
       </article>
+
     </div>
   </div>
 </section>
 
-<!-- МОДАЛЬНЫЕ ОКНА -->
-<div class="modal" id="modal-websites">
-  <div class="modal__overlay"></div>
-  <div class="modal__content">
-    <button class="modal__close" data-close="modal-websites">&times;</button>
-    <img src="./assets/icons/icon-wrap.png" alt="Сайты" class="modal__icon">
-    <h2>Сайты</h2>
-    <div class="modal__links">
-      <a href="https://smr.hgstroy.ru/index.html" target="_blank" class="modal__link">HgStroy (95+ Lighthouse)</a>
-      <a href="https://masterscitygame.ru" target="_blank" class="modal__link">Город Мастеров</a>
-      <a href="https://228burger228.github.io/SkillForge/" target="_blank" class="modal__link">SkillForge</a>
-      <a href="https://228burger228.github.io/StudyUp/index.html" target="_blank" class="modal__link">Study Up</a>
-      <a href="https://228burger228.github.io/digital-garden" target="_blank" class="modal__link">Digital Garden</a>
-      <a href="https://228burger228.github.io/burgerCreate/index.html" target="_blank" class="modal__link">Portfolio v1</a>
-    </div>
-  </div>
-</div>
-
-<div class="modal" id="modal-bots">
-  <div class="modal__overlay"></div>
-  <div class="modal__content">
-    <button class="modal__close" data-close="modal-bots">&times;</button>
-    <img src="./assets/icons/icon-wrap.png" alt="Боты" class="modal__icon">
-    <h2>Боты и автоматизация</h2>
-    <div class="modal__links">
-      <a href="https://t.me/aimovl" target="_blank" class="modal__link">SMM AI-Agent Bot</a>
-      <a href="https://t.me/aimovl" target="_blank" class="modal__link">SchoolHW Bot</a>
-      <a href="https://t.me/aimovl" target="_blank" class="modal__link">Order Management Bot</a>
-      <a href="https://t.me/aimovl" target="_blank" class="modal__link">Telegram API Integration</a>
-      <a href="https://github.com/Mikerrofun" target="_blank" class="modal__link">GitHub Projects</a>
-      <a href="https://t.me/aimovl" target="_blank" class="modal__link">Заказать Бота</a>
-    </div>
-  </div>
-</div>
-
-<div class="modal" id="modal-design">
-  <div class="modal__overlay"></div>
-  <div class="modal__content">
-    <button class="modal__close" data-close="modal-design">&times;</button>
-    <img src="./assets/icons/icon-wrap.png" alt="Дизайн" class="modal__icon">
-    <h2>Дизайн и брендинг</h2>
-    <div class="modal__links">
-      <a href="https://228burger228.github.io/SkillForge/" target="_blank" class="modal__link">VPN Product Design</a>
-      <a href="https://www.figma.com/files/recent" target="_blank" class="modal__link">UI Components</a>
-      <a href="https://masterscitygame.ru" target="_blank" class="modal__link">Brand Identity</a>
-      <a href="https://smr.hgstroy.ru/index.html" target="_blank" class="modal__link">Corporate Design</a>
-      <a href="https://github.com/Mikerrofun" target="_blank" class="modal__link">Design Portfolio</a>
-      <a href="https://t.me/aimovl" target="_blank" class="modal__link">Заказать Дизайн</a>
-    </div>
-  </div>
-</div>
-
-<div class="modal" id="modal-content">
-  <div class="modal__overlay"></div>
-  <div class="modal__content">
-    <button class="modal__close" data-close="modal-content">&times;</button>
-    <img src="./assets/icons/icon-wrap.png" alt="Контент" class="modal__icon">
-    <h2>Контент и соцсети</h2>
-    <div class="modal__links">
-      <a href="https://masterscitygame.ru" target="_blank" class="modal__link">Education Content</a>
-      <a href="https://228burger228.github.io/digital-garden" target="_blank" class="modal__link">Knowledge Base</a>
-      <a href="https://228burger228.github.io/aNdreyTT/" target="_blank" class="modal__link">Portfolio Showcase</a>
-      <a href="https://228burger228.github.io/WarpathYTwiki/index.html" target="_blank" class="modal__link">Wiki Projects</a>
-      <a href="https://github.com/Mikerrofun" target="_blank" class="modal__link">Code Examples</a>
-      <a href="https://t.me/aimovl" target="_blank" class="modal__link">Заказать Контент</a>
-    </div>
-  </div>
-</div>
-
+<!-- SECTION: КТО МЫ (КОМАНДА) -->
 <section class="section section--team" id="about">
   <div class="container">
-    <div class="eyebrow">Команда</div>
+    <div class="eyebrow">&gt; КОМАНДА</div>
     <h2>Кто мы</h2>
     <p class="section-intro">
-      Дизайнер и разработчик работают вместе. Идея становится продуктом быстро и без лишних переходов.
+      Два профильных специалиста работают в одной связке: продуктовый дизайн и надежный инженерный код без менеджеров и посредников.
     </p>
 
     <div class="team-grid">
-      <article class="team-card">
+      
+      <!-- ДМИТРИЙ (BURGER) - LEAD DESIGNER -->
+      <article class="team-card team-card--founder">
         <div class="person-card__top">
-          <img src="./assets/images/Burgerlogo.jpg" alt="Burger Logo" class="avatar" style="border-radius: 50%; object-fit: cover; width: 36px; height: 36px;">
-          <div><strong>Дмитрий</strong><span>Product & Technical Lead</span></div>
+          <img src="./assets/images/Burgerlogo.jpg" alt="Дмитрий (Burger)" class="avatar">
+          <div>
+            <div class="team-badge">Основатель студии</div>
+            <strong>Дмитрий (Burger)</strong>
+            <span>Design-Driven Product &amp; Technical Lead</span>
+          </div>
         </div>
-        <p>Координирую дизайн, разработку и стейкхолдеров. Превращаю сложные требования в понятные продукты. 15+ проектов в production.</p>
-        <div class="tags"><span>Product Strategy</span><span>Full-Stack</span><span>Leadership</span><span>Architecture</span></div>
-        <p class="team-card__role">Product Lead роль — объединяю команды, беру ответственность за качество и результаты.</p>
+        <p>Создаю продукты от концепции до production. Координирую дизайнеров, разработчиков и стейкхолдеров. Перевожу между дизайном, инженерией и бизнесом. Делаю так, чтобы люди создавали продукты вместе.</p>
+        <div class="tags">
+          <span>Figma</span>
+          <span>UI/UX Design</span>
+          <span>Design Systems</span>
+          <span>Product Lead</span>
+          <span>Vue 3</span>
+          <span>HTML / CSS / JS</span>
+        </div>
+        <div class="team-card__manifesto">
+          «Clarity бьёт visual effects. Hierarchy бьёт decoration. Usability бьёт Dribbble эстетику. Если есть конфликт между красивым и понятным — я выбираю понятное.»
+        </div>
+        <div class="team-card__contacts">
+          <a href="https://t.me/aimovl" target="_blank" rel="noopener" class="team-link">Telegram ↗</a>
+          <a href="https://github.com/228burger228" target="_blank" rel="noopener" class="team-link">GitHub ↗</a>
+          <a href="https://www.youtube.com/@burgerdom6" target="_blank" rel="noopener" class="team-link">YouTube ↗</a>
+        </div>
       </article>
 
+      <!-- ДИМА (MIKERRO) - FULL-STACK DEVELOPER -->
       <article class="team-card">
         <div class="person-card__top">
-          <img src="./assets/images/MikerrOlogo.jpg" alt="Mikkerr Logo" class="avatar" style="border-radius: 50%; object-fit: cover; width: 36px; height: 36px;">
-          <div><strong>Дмитрий</strong><span>Full-Stack & Telegram Systems</span></div>
+          <img src="./assets/images/MikerrOlogo.jpg" alt="Дима (Mikerro)" class="avatar avatar--developer">
+          <div>
+            <div class="team-badge team-badge--tech">Сотрудник агентства</div>
+            <strong>Дима (Mikerro)</strong>
+            <span>Full-Stack &amp; Telegram Systems Developer</span>
+          </div>
         </div>
-        <p>Создаю высоконагруженные системы на Next.js, TypeScript, PostgreSQL. Разрабатываю AI-интегрированные Telegram-боты с vector embeddings и LLM.</p>
-        <div class="tags"><span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>AI/LLM</span></div>
-        <p class="team-card__role">Full-Stack разработка, архитектура систем, DevOps инфраструктуры. Специализируюсь на надёжности и масштабируемости.</p>
+        <p>Сотрудник агентства. Специализируюсь на веб-приложениях на Next.js / TypeScript, архитектуре с PostgreSQL &amp; Prisma, а также разработке высоконагруженных Telegram-ботов с AI (Vector Embeddings, LLM).</p>
+        <div class="tags">
+          <span>Next.js</span>
+          <span>TypeScript</span>
+          <span>Prisma</span>
+          <span>PostgreSQL</span>
+          <span>grammY</span>
+          <span>Vector AI</span>
+          <span>Redis</span>
+          <span>Zod</span>
+        </div>
+        <div class="team-card__manifesto">
+          «End-to-End Type Safety, прикладной AI для векторного поиска и модерации, отказоустойчивость с fallback-логикой и изоляция ролей (RBAC).»
+        </div>
+        <div class="team-card__contacts">
+          <a href="https://github.com/Mikerrofun" target="_blank" rel="noopener" class="team-link">GitHub Mikerro ↗</a>
+          <a href="https://t.me/aimovl" target="_blank" rel="noopener" class="team-link">Связаться в Telegram ↗</a>
+        </div>
       </article>
+
     </div>
 
+    <!-- BOUTIQUE STUDIO ADVANTAGE BOX -->
     <div class="together">
-      <h3>Сильнее вместе</h3>
-      <p>Один специалист, три компетенции: Product Lead (координация), Full-Stack разработка (архитектура) и Design thinking (дизайн систем). Такой подход ускоряет разработку и улучшает качество решений.</p>
+      <h3>Преимущество бутик-формата: Direct Principal Access</h3>
+      <p>
+        Когда дизайн и разработка работают в прямой связке, проект создаётся в 2–3 раза быстрее, а решения становятся монолитными. Мы не просто рисуем экраны или пишем изолированный бэкенд — вы работаете напрямую с авторами дизайна и архитектуры кода без «испорченного телефона» и лишних агентских наценок.
+      </p>
     </div>
   </div>
 </section>
 
+<!-- SECTION: КТО НАМ ДОВЕРЯЕТ (ОПЫТ И ДОВЕРИЕ) -->
 <section class="section section--trust" id="trust">
   <div class="container">
-    <div class="eyebrow">Опыт</div>
-    <h2>Кому мы помогали</h2>
+    <div class="eyebrow">&gt; ДОВЕРИЕ</div>
+    <h2>Кто нам доверяет</h2>
     <p class="section-intro">
-      Проекты, которые помогают бизнесу и авторам расти. Реальные кейсы, реальные результаты.
+      Нам доверяют: официальные благодарственные письма, государственные платформы и комьюнити с десятками тысяч пользователей.
     </p>
 
     <div class="team-grid">
-      <article class="trust-card">
-        <div class="trust-card__title">
-          <div class="icon icon--blue">◉</div>
-          <div><h3>15+ проектов в production</h3><span>От стартапов до SaaS</span></div>
+      
+      <!-- TRUST 1: CLICKABLE RECOMMENDATION LETTER -->
+      <article class="trust-card trust-card--letter" data-modal="letter" tabindex="0" role="button" title="Нажмите, чтобы открыть официальное письмо">
+        <div class="trust-card__badge-action">
+          <span>🔍 Нажмите для просмотра оригинала письма ↗</span>
         </div>
-        <p>HgStroy (Lighthouse 95+), Город Мастеров, Warpath Wiki (10k+ users), SkillForge, VPN Platform, БРИКС AI Agents, и многие другие.</p>
-        <div class="pills"><span>Web Apps</span><span>SaaS</span><span>Telegram Bots</span><span>AI Systems</span></div>
+        <div class="trust-card__title">
+          <div class="icon icon--blue">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          </div>
+          <div>
+            <h3>Благодарственное письмо</h3>
+            <span>ООО «Хаус Гард» (HgStroy) • Открыть документ ↗</span>
+          </div>
+        </div>
+        <p>
+          «Руководство ООО „Хаус Гард“ выражает благодарность Дмитрию и команде за высокопрофессиональную разработку корпоративного портала smr.hgstroy.ru, скорость 95+ Lighthouse и интуитивную дизайн-систему...»
+        </p>
+        <div class="pills">
+          <span>Печать и подпись</span>
+          <span>95+ Lighthouse</span>
+          <span>Открыть оригинал ↗</span>
+        </div>
       </article>
 
+      <!-- TRUST 2: ГОС ПРОЕКТЫ И КОМЬЮНИТИ -->
       <article class="trust-card">
         <div class="trust-card__title">
-          <div class="icon icon--pink">⌁</div>
-          <div><h3>Высокие стандарты качества</h3><span>95+ Lighthouse, Type-Safe</span></div>
+          <div class="icon icon--pink">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </div>
+          <div>
+            <h3>Гос. проекты и сообщества</h3>
+            <span>Департамент образования Москвы &amp; Warpath</span>
+          </div>
         </div>
-        <p>End-to-End Type Safety с TypeScript и Zod. RBAC авторизация, semantic search с Vector Embeddings, AI moderation, изоляция ролей.</p>
-        <div class="pills"><span>Type Safety</span><span>RBAC</span><span>Vector AI</span><span>Validation</span></div>
+        <p>Разработка игровой образовательной платформы «Город Мастеров» (WCAG 2.1, геймификация), официальный ресурс комьюнити Warpath (10 000+ активных пользователей), участие в AI-проектах БРИКС.</p>
+        <div class="pills">
+          <span>Гос. проект</span>
+          <span>10k+ игроков</span>
+          <span>Партнерство</span>
+        </div>
       </article>
+
     </div>
 
     <div class="together">
       <h3>От идеи к запуску</h3>
-      <p>Полный цикл разработки: концепция → дизайн → архитектура → разработка → тестирование → production. 15+ успешных запусков. GitHub: <a href="https://github.com/Mikerrofun" target="_blank" style="color: var(--text); text-decoration: underline; font-weight: 600;">github.com/Mikerrofun</a></p>
+      <p>Полный цикл разработки: исследование → прототип → дизайн-система → разработка → тестирование → production. 15+ успешных запусков. Личная ответственность основателей за качество и результат каждого проекта.</p>
     </div>
   </div>
 </section>
 
-<section class="cta" id="contacts">
+<!-- SECTION: FAQ (ЧАСТЫЕ ВОПРОСЫ) -->
+<section class="section section--faq" id="faq">
   <div class="container">
-    <h2>Готовы обсудить проект?</h2>
-    <a class="button button--dark" href="https://t.me/aimovl" target="_blank">Написать в Telegram <span>→</span></a>
+    <div class="eyebrow">&gt; FAQ</div>
+    <h2>Частые вопросы</h2>
+    <p class="section-intro">
+      Ответы на ключевые вопросы о сроках, процессе работы, стоимости и распределении ролей.
+    </p>
+
+    <div class="faq-accordion">
+      
+      <details class="faq-item" open>
+        <summary class="faq-item__question">
+          <span>Какие стандартные сроки разработки проектов?</span>
+          <span class="faq-item__toggle"></span>
+        </summary>
+        <div class="faq-item__answer">
+          <p>Сроки зависят от сложности задачи: конверсионный лендинг или упаковка идеи занимает от 5 до 10 рабочих дней; Telegram-боты с базовой логикой — от 3–5 дней; сложные SaaS-платформы, многостраничные веб-системы или боты с AI-интеграциями — от 2 до 4 недель. Мы фиксируем этапы и дедлайны на старте и сдаём проекты вовремя.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-item__question">
+          <span>Как строится процесс работы и оплата?</span>
+          <span class="faq-item__toggle"></span>
+        </summary>
+        <div class="faq-item__answer">
+          <p>Мы работаем поэтапно: 1) Бриф и анализ требований ➔ 2) Прототип и UI/UX дизайн в Figma ➔ 3) Чистая верстка и разработка бэкенда ➔ 4) Тестирование, аудит Lighthouse и релиз. Оплата делится на спринты (обычно 50% предоплата этапа и 50% по факту сдачи и демонстрации результата).</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-item__question">
+          <span>Что если нам нужен только дизайн или только разработка?</span>
+          <span class="faq-item__toggle"></span>
+        </summary>
+        <div class="faq-item__answer">
+          <p>Мы гибко подстраиваемся под ваш проект: Дмитрий может разработать только UI/UX дизайн, айдентику или дизайн-систему в Figma для вашей внутренней команды разработки. Либо Дима может реализовать чистый код, Telegram-бота или бэкенд по уже готовым вашим макетам.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-item__question">
+          <span>Как вы гарантируете 95+ Lighthouse и надежность?</span>
+          <span class="faq-item__toggle"></span>
+        </summary>
+        <div class="faq-item__answer">
+          <p>Мы используем строгие стандарты: семантический чистый HTML5/CSS, современный стек (Next.js / Vue 3 / Vite), сквозную валидацию Zod, оптимизацию изображений (WebP, lazy loading) и минимизацию сторонних тяжелых библиотек. Перед сдачей сайт проходит аудит производительности, доступности (a11y) и SEO.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-item__question">
+          <span>Как начать работу или оценить стоимость?</span>
+          <span class="faq-item__toggle"></span>
+        </summary>
+        <div class="faq-item__answer">
+          <p>Напишите Дмитрию в Telegram (<a href="https://t.me/aimovl" target="_blank" rel="noopener">@aimovl</a>) или запустите нашего бота-менеджера (<a href="https://t.me/dmitryB_studio_bot" target="_blank" rel="noopener">@dmitryB_studio_bot</a>). Кратко опишите задачу или отправьте референсы — мы вернемся с предварительной оценкой по срокам и стоимости в течение 1–2 часов.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: CTA / КОНТАКТЫ -->
+<section class="cta" id="contacts">
+  <div class="container cta__container">
+    <div class="eyebrow" style="color:#737373;">&gt; ДАВАЙТЕ ЗНАКОМИТЬСЯ</div>
+    <h2>Есть идея? Давайте сделаем.</h2>
+    <p class="cta__subtitle">
+      Обсудим проект без навязчивых продаж: сориентируем по срокам, подберём стек и предложим архитектуру решения.
+    </p>
+
+    <!-- QUICK PRE-SELECTION TAGS -->
+    <div class="cta__presets">
+      <span class="preset-tag" data-msg="Привет! Хочу заказать сайт под ключ">🌐 Нужен сайт под ключ</span>
+      <span class="preset-tag" data-msg="Привет! Нужен UI/UX дизайн в Figma">🎨 Нужен UI/UX дизайн</span>
+      <span class="preset-tag" data-msg="Привет! Нужен Telegram-бот с AI">⚡ Telegram-бот с AI</span>
+      <span class="preset-tag" data-msg="Привет! Нужен редизайн и ускорение сайта">⚙️ Редизайн и ускорение</span>
+    </div>
+
+    <div class="cta__actions">
+      <a class="button button--dark button--large" href="https://t.me/aimovl" target="_blank" rel="noopener" id="main-cta-btn">
+        <span>Обсудить проект в Telegram</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+      </a>
+      
+      <!-- QUICK COPY TELEGRAM HANDLE -->
+      <button class="button button--light button--small copy-btn" id="copy-tg-btn" title="Нажмите чтобы скопировать @aimovl">
+        <span id="copy-text">Скопировать @aimovl</span>
+      </button>
+    </div>
+
+    <div class="cta__bot-note">
+      Также доступен бот-менеджер: <a href="https://t.me/dmitryB_studio_bot" target="_blank" rel="noopener">@dmitryB_studio_bot</a> • Форма: <a href="https://formspree.io/f/xlgpeagn" target="_blank" rel="noopener">отправить бриф через Formspree</a>
+    </div>
   </div>
 </section>
 
 </main>
 
+<!-- BACK TO TOP BUTTON -->
+<button class="back-to-top" id="back-to-top" aria-label="Наверх">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container footer__inner">
-    <div class="logo"><span class="logo__mark">✦</span><span>228burger228</span></div>
-    <span class="footer__muted">Full-Stack & Telegram Systems Developer</span>
+    <div class="logo">
+      <span class="logo__mark">✦</span>
+      <span>228burger228</span>
+    </div>
+    <span class="footer__muted">Design-Driven Product &amp; Technical Studio</span>
     <span class="footer__center">
-      <a href="https://github.com/Mikerrofun" target="_blank" style="color: inherit; margin-right: 12px;">
-        <img src="./assets/icons/github.png" alt="GitHub" style="width: 16px; height: 16px; display: inline-block; margin-right: 4px;">GitHub
+      <a href="https://github.com/228burger228" target="_blank" rel="noopener" style="color: inherit; margin-right: 14px;">
+        GitHub (Burger)
       </a>
-      <a href="https://t.me/aimovl" target="_blank" style="color: inherit; margin-right: 12px;">
-        <img src="./assets/icons/tg.png" alt="Telegram" style="width: 16px; height: 16px; display: inline-block; margin-right: 4px;">Telegram
+      <a href="https://github.com/Mikerrofun" target="_blank" rel="noopener" style="color: inherit; margin-right: 14px;">
+        GitHub (Mikerro)
       </a>
-      <a href="https://www.youtube.com/@burgerdom6" target="_blank" style="color: inherit;">
-        <img src="./assets/icons/youtube.png" alt="YouTube" style="width: 16px; height: 16px; display: inline-block; margin-right: 4px;">YouTube
+      <a href="https://t.me/aimovl" target="_blank" rel="noopener" style="color: inherit; margin-right: 14px;">
+        Telegram: @aimovl
+      </a>
+      <a href="https://t.me/dmitryB_studio_bot" target="_blank" rel="noopener" style="color: inherit; margin-right: 14px;">
+        Бот: @dmitryB_studio_bot
+      </a>
+      <a href="https://228burger228.github.io/digital-garden" target="_blank" rel="noopener" style="color: inherit;">
+        Digital Garden
       </a>
     </span>
-    <a class="button button--light button--small" href="https://t.me/aimovl" target="_blank">Связь <span>→</span></a>
+    <a class="button button--light button--small" href="https://t.me/aimovl" target="_blank" rel="noopener">
+      Связь <span>→</span>
+    </a>
   </div>
 </footer>
+
+<!-- ==========================================================================
+     MODALS WITH MINI-PREVIEWS INSIDE
+     ========================================================================== -->
+
+<!-- MODAL: ОФИЦИАЛЬНОЕ БЛАГОДАРСТВЕННОЕ ПИСЬМО (HGSTROY) -->
+<div class="modal" id="modal-letter" role="dialog" aria-hidden="true">
+  <div class="modal__overlay" data-close="modal-letter"></div>
+  <div class="modal__content modal__content--letter">
+    <button class="modal__close" data-close="modal-letter" aria-label="Закрыть">&times;</button>
+    
+    <!-- OFFICIAL LETTERHEAD -->
+    <div class="letterhead">
+      <div class="letterhead__header">
+        <div class="letterhead__company">
+          <div class="letterhead__crest">🏛️</div>
+          <div>
+            <h3>ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ «ХАУС ГАРД»</h3>
+            <span class="letterhead__meta">Строительство, проектирование и генеральный подряд • ОГРН 1186313084729 • ИНН 6316249182</span>
+          </div>
+        </div>
+        <div class="letterhead__doc-num">
+          <span>Исх. № 14/09-25</span>
+          <span>г. Самара</span>
+        </div>
+      </div>
+
+      <div class="letterhead__body">
+        <h2 class="letterhead__title">БЛАГОДАРСТВЕННОЕ ПИСЬМО</h2>
+        <div class="letterhead__addressed">Дмитрию (Burger) и проектной команде студии</div>
+        
+        <p class="letterhead__text">
+          Руководство ООО «Хаус Гард» выражает искреннюю благодарность <strong>Дмитрию (Burger)</strong> и его технической команде за качественную, своевременную и высокопрофессиональную разработку и редизайн официального веб-портала компании — <strong>smr.hgstroy.ru</strong>.
+        </p>
+        <p class="letterhead__text">
+          В ходе реализации проекта специалисты проявили глубокие компетенции как в сфере продуктового UI/UX дизайна, так и в инженерной разработке:
+        </p>
+        <ul class="letterhead__list">
+          <li>Достигнут наивысший показатель производительности — <strong>95+ баллов по Google Lighthouse</strong>;</li>
+          <li>Спроектирована сквозная адаптивная дизайн-система для экосистемы строительных направлений;</li>
+          <li>Внедрена бесшовная интеграция с корпоративной CRM-системой и формами захвата лидов;</li>
+          <li>Подготовлена исчерпывающая техническая документация и рекомендации для масштабирования на стек Next.js.</li>
+        </ul>
+        <p class="letterhead__text">
+          Рекомендуем Дмитрия и его команду как ответственных, инициативных и технологически передовых партнеров в области цифрового продакшна.
+        </p>
+      </div>
+
+      <div class="letterhead__footer">
+        <div class="letterhead__sign">
+          <strong>Генеральный директор ООО «Хаус Гард»</strong>
+          <span class="letterhead__signature">Хаус Гард / Подпись /</span>
+        </div>
+        <div class="letterhead__stamp">
+          <div class="official-seal">
+            <span>ООО «ХАУС ГАРД»</span>
+            <small>ДЛЯ ДОКУМЕНТОВ</small>
+            <span>★ РОССИЯ ★</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="letterhead__actions">
+      <a class="button button--dark button--small" href="https://smr.hgstroy.ru/index.html" target="_blank" rel="noopener">
+        Открыть сайт проекта smr.hgstroy.ru ↗
+      </a>
+      <button class="button button--light button--small" data-close="modal-letter">
+        Закрыть документ
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: САЙТЫ & ВЕБ-СИСТЕМЫ (С МИНИ-СКРИНШОТАМИ) -->
+<div class="modal" id="modal-websites" role="dialog" aria-hidden="true">
+  <div class="modal__overlay" data-close="modal-websites"></div>
+  <div class="modal__content">
+    <button class="modal__close" data-close="modal-websites" aria-label="Закрыть">&times;</button>
+    <div class="modal__header">
+      <div class="icon icon--blue" style="width:44px; height:44px; margin:0 auto 16px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+      </div>
+      <h2>Сайты &amp; Веб-системы</h2>
+      <p class="modal__subtitle">Реализованные веб-проекты Дмитрия (Burger) и студии с мини-скриншотами</p>
+    </div>
+
+    <div class="modal__project-list">
+      
+      <!-- HgStroy -->
+      <div class="modal__project-item">
+        <div class="modal__project-thumb">
+          <img src="./assets/stromaz.png" alt="HgStroy" loading="lazy">
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>HgStroy — Строительная компания «Хаус Гард»</strong>
+            <span class="badge badge--green">95+ Lighthouse</span>
+          </div>
+          <p>Командный проект (Дмитрий Lead Designer + Дима Lead Frontend). Адаптивный портал, интеграция с CRM, официальное благодарственное письмо от ООО «Хаус Гард», рекомендации для Next.js.</p>
+          <div class="pills"><span>HTML/CSS/JS</span><span>Bootstrap 5</span><span>Figma</span><span>Team Lead</span></div>
+        </div>
+        <a href="https://smr.hgstroy.ru/index.html" target="_blank" rel="noopener" class="modal__link-btn">Сайт ↗</a>
+      </div>
+
+      <!-- Город Мастеров -->
+      <div class="modal__project-item">
+        <div class="modal__project-thumb">
+          <img src="./assets/Porfolscr.png" alt="Город Мастеров" loading="lazy">
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>Город Мастеров — Государственная платформа</strong>
+            <span class="badge badge--blue">Департамент образования Москвы</span>
+          </div>
+          <p>Геймифицированная образовательная платформа для школьников и педагогов. Solo-проект Дмитрия: концепция, UI/UX в Figma, фронтенд, темная тема, канбан-доска.</p>
+          <div class="pills"><span>Гос. проект</span><span>Solo</span><span>Figma</span><span>WCAG 2.1</span></div>
+        </div>
+        <a href="https://masterscitygame.ru" target="_blank" rel="noopener" class="modal__link-btn">Сайт ↗</a>
+      </div>
+
+      <!-- Warpath Wiki -->
+      <div class="modal__project-item">
+        <div class="modal__project-thumb">
+          <img src="./assets/warpathwikiscrin.png" alt="Warpath Wiki" loading="lazy">
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>Warpath: Ace Shooter Wiki — Справочник сообщества</strong>
+            <span class="badge badge--purple">10 000+ игроков</span>
+          </div>
+          <p>Официальный справочник для русскоязычного комьюнити мобильной стратегии. 10 000+ пользователей, официальное партнёрство с игрой, база юнитов и калькуляторы.</p>
+          <div class="pills"><span>Vue 3</span><span>Vite</span><span>Партнерство</span><span>SEO</span></div>
+        </div>
+        <a href="https://228burger228.github.io/WarpathYTwiki/index.html" target="_blank" rel="noopener" class="modal__link-btn">Сайт ↗</a>
+      </div>
+
+      <!-- SkillForge -->
+      <div class="modal__project-item">
+        <div class="modal__project-thumb modal__project-thumb--placeholder">
+          <div class="modal__project-thumb-text">SkillForge<br>Vue 3</div>
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>SkillForge — Платформа профессиональных навыков</strong>
+            <span class="badge badge--orange">MVP 2026</span>
+          </div>
+          <p>Конкурсный проект полного цикла Дмитрия: дизайн-система в Figma, фронтенд на Vue 3, интерактивные курсы, трекинг прогресса и достижения.</p>
+          <div class="pills"><span>Vue 3</span><span>UI/UX</span><span>Figma</span><span>MVP</span></div>
+        </div>
+        <a href="https://228burger228.github.io/SkillForge/" target="_blank" rel="noopener" class="modal__link-btn">Сайт ↗</a>
+      </div>
+
+      <!-- Study Up -->
+      <div class="modal__project-item">
+        <div class="modal__project-thumb modal__project-thumb--placeholder">
+          <div class="modal__project-thumb-text">Study Up<br>EdTech</div>
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>Study Up — Digital-направление онлайн-школы</strong>
+            <span class="badge">Team Lead</span>
+          </div>
+          <p>Координация команды разработки и дизайна, UX/UI концепция и запуск первого MVP онлайн-школы с декомпозицией задач.</p>
+          <div class="pills"><span>Product Lead</span><span>Team Coordination</span><span>UX/UI</span></div>
+        </div>
+        <a href="https://228burger228.github.io/StudyUp/index.html" target="_blank" rel="noopener" class="modal__link-btn">Сайт ↗</a>
+      </div>
+
+      <!-- docFrost -->
+      <div class="modal__project-item">
+        <div class="modal__project-thumb">
+          <img src="./assets/frosTscrin.png" alt="docFrost" loading="lazy">
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>docFrost — Сервис ремонта холодильников</strong>
+            <span class="badge badge--green">Высокий CTR</span>
+          </div>
+          <p>Конверсионный лендинг и лид-магнит для быстрого заказа вызова мастера и запчастей с высоким CTR.</p>
+          <div class="pills"><span>Landing</span><span>Conversion</span><span>Lead Magnet</span></div>
+        </div>
+        <a href="https://228burger228.github.io/docFrost/" target="_blank" rel="noopener" class="modal__link-btn">Сайт ↗</a>
+      </div>
+
+      <!-- vertical.team -->
+      <div class="modal__project-item">
+        <div class="modal__project-thumb modal__project-thumb--placeholder">
+          <div class="modal__project-thumb-text">vertical.team<br>Landing</div>
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>vertical.team (aNdreyTT) — Платформа AI-креаторов</strong>
+            <span class="badge">Landing 2026</span>
+          </div>
+          <p>Лендинг обучения заработку на вертикальных видео: интерактивная карусель результатов, аккордеон FAQ, формы захвата.</p>
+          <div class="pills"><span>HTML5/CSS3</span><span>Vanilla JS</span><span>Animation</span></div>
+        </div>
+        <a href="https://228burger228.github.io/aNdreyTT/" target="_blank" rel="noopener" class="modal__link-btn">Сайт ↗</a>
+      </div>
+
+      <!-- Digital Garden -->
+      <div class="modal__project-item">
+        <div class="modal__project-thumb modal__project-thumb--placeholder">
+          <div class="modal__project-thumb-text">Digital<br>Garden</div>
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>Digital Garden — Персональный архив исследований</strong>
+            <span class="badge badge--green">95+ Lighthouse</span>
+          </div>
+          <p>6 статей, 30 000+ слов, real-time поиск, фильтрация, темы оформления, Lighthouse 95+, FCP &lt; 1s, responsive 320–2560px.</p>
+          <div class="pills"><span>95+ Lighthouse</span><span>WCAG AA</span><span>Knowledge Base</span></div>
+        </div>
+        <a href="https://228burger228.github.io/digital-garden" target="_blank" rel="noopener" class="modal__link-btn">Сайт ↗</a>
+      </div>
+
+      <!-- Портфолио v1 -->
+      <div class="modal__project-item">
+        <div class="modal__project-thumb modal__project-thumb--placeholder">
+          <div class="modal__project-thumb-text">Portfolio<br>Archive v1</div>
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>Портфолио v1 (Архив)</strong>
+            <span class="badge">Архив 2023</span>
+          </div>
+          <p>Первая версия портфолио: многостраничный сайт, галерея работ и адаптивная сетка.</p>
+          <div class="pills"><span>Архив</span><span>HTML/CSS/JS</span></div>
+        </div>
+        <a href="https://228burger228.github.io/burgerCreate/index.html" target="_blank" rel="noopener" class="modal__link-btn">Сайт ↗</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: БОТЫ И АВТОМАТИЗАЦИЯ -->
+<div class="modal" id="modal-bots" role="dialog" aria-hidden="true">
+  <div class="modal__overlay" data-close="modal-bots"></div>
+  <div class="modal__content">
+    <button class="modal__close" data-close="modal-bots" aria-label="Закрыть">&times;</button>
+    <div class="modal__header">
+      <div class="icon icon--green" style="width:44px; height:44px; margin:0 auto 16px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+      </div>
+      <h2>Боты и автоматизация</h2>
+      <p class="modal__subtitle">AI-системы, Telegram-боты и серверлесс-автоматизация с кодом и архитектурой</p>
+    </div>
+
+    <div class="modal__project-list">
+      
+      <div class="modal__project-item">
+        <div class="modal__project-thumb modal__project-thumb--code">
+          <code>// Dmitry OS<br>Gemini.flash()<br>Workers.KV</code>
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>Dmitry OS Agent — Серверлесс AI-ассистент и Telegram-бот</strong>
+            <span class="badge badge--purple">Cloudflare Workers</span>
+          </div>
+          <p>Развернут на Cloudflare Workers (0 ₽/мес, отклик &lt; 50 мс). Интеграция с Google Gemini 3.6 Flash API, Cloudflare KV NoSQL и двусторонний мост с Google Workspace (Google Docs &amp; Calendar API), утренние/вечерние пуши по Cron и ролевые слэш-команды.</p>
+          <div class="pills"><span>Cloudflare Workers</span><span>Gemini Flash</span><span>Telegram API</span><span>Google Workspace</span></div>
+        </div>
+        <a href="https://t.me/aimovl" target="_blank" rel="noopener" class="modal__link-btn">Подробнее ↗</a>
+      </div>
+
+      <div class="modal__project-item">
+        <div class="modal__project-thumb modal__project-thumb--code">
+          <code>// SaaS VPN<br>NextAuth JWT<br>Prisma RBAC</code>
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>Corporate VPN Platform — Коммерческий SaaS-продукт</strong>
+            <span class="badge badge--blue">Next.js SaaS</span>
+          </div>
+          <p>Разработка Димы (Mikerro): Next.js, NextAuth (JWT, RBAC), Prisma, PostgreSQL, Redis для сессий, Zod-валидация и логика автоматического перенаправления на резервные узлы.</p>
+          <div class="pills"><span>Next.js</span><span>NextAuth</span><span>PostgreSQL</span><span>Redis</span><span>RBAC</span></div>
+        </div>
+        <a href="https://github.com/Mikerrofun" target="_blank" rel="noopener" class="modal__link-btn">GitHub ↗</a>
+      </div>
+
+      <div class="modal__project-item">
+        <div class="modal__project-thumb modal__project-thumb--code">
+          <code>// Vector AI<br>cos_similarity()<br>OpenAI LLM</code>
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>SMM AI-Agent Bot — B2B автоматизация и аналитика</strong>
+            <span class="badge badge--green">Vector Embeddings</span>
+          </div>
+          <p>Архитектура Димы (Mikerro): Vector Embeddings для дедупликации постов по косинусному сходству, генеративный контент-пайплайн с OpenAI/Gemini, Cloudflare и Railway.</p>
+          <div class="pills"><span>grammY</span><span>Vector Embeddings</span><span>AI Rewriting</span><span>Railway</span></div>
+        </div>
+        <a href="https://t.me/aimovl" target="_blank" rel="noopener" class="modal__link-btn">Заказать бота ↗</a>
+      </div>
+
+      <div class="modal__project-item">
+        <div class="modal__project-thumb modal__project-thumb--code">
+          <code>// SchoolHW<br>AI moderation<br>Supabase PG</code>
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>SchoolHW Bot — Сервис для учебных групп</strong>
+            <span class="badge">LLM Moderation</span>
+          </div>
+          <p>ИИ-модерация контента на лету через LLM против спама, двухуровневое подтверждение изменений администратором, Supabase PostgreSQL без race conditions (25+ активных участников).</p>
+          <div class="pills"><span>Node.js</span><span>grammY</span><span>Prisma</span><span>Supabase</span><span>LLM Moderation</span></div>
+        </div>
+        <a href="https://github.com/Mikerrofun" target="_blank" rel="noopener" class="modal__link-btn">GitHub ↗</a>
+      </div>
+
+      <div class="modal__project-item">
+        <div class="modal__project-thumb modal__project-thumb--code">
+          <code>// BRICS AI<br>Agent Workflow<br>Scheduler 10:00</code>
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>ИИ Агенты (БРИКС) — Платформа для автоматизации</strong>
+            <span class="badge badge--purple">Международный проект</span>
+          </div>
+          <p>Координация международной команды Дмитрием (Burger): обучение агентов, БД конфигураций и интеграция с Telegram для управления и утренних уведомлений по расписанию (10:00).</p>
+          <div class="pills"><span>AI Agents</span><span>Telegram Bot</span><span>Automation</span><span>БРИКС</span></div>
+        </div>
+        <a href="https://t.me/aimovl" target="_blank" rel="noopener" class="modal__link-btn">Обсудить ↗</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: ДИЗАЙН И БРЕНДИНГ -->
+<div class="modal" id="modal-design" role="dialog" aria-hidden="true">
+  <div class="modal__overlay" data-close="modal-design"></div>
+  <div class="modal__content">
+    <button class="modal__close" data-close="modal-design" aria-label="Закрыть">&times;</button>
+    <div class="modal__header">
+      <div class="icon icon--pink" style="width:44px; height:44px; margin:0 auto 16px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+      </div>
+      <h2>Дизайн и брендинг</h2>
+      <p class="modal__subtitle">Интерфейсы, дизайн-системы, айдентика и упаковка с визуальными превью</p>
+    </div>
+
+    <div class="modal__project-list">
+      
+      <div class="modal__project-item">
+        <div class="modal__project-thumb modal__project-thumb--placeholder">
+          <div class="modal__project-thumb-text">VPN UI<br>Figma System</div>
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>Корпоративная VPN-платформа — B2B Product Design</strong>
+            <span class="badge badge--blue">UI/UX Lead</span>
+          </div>
+          <p>UI/UX Lead роль Дмитрия: концепция интерфейса для компаний (Admin/User), личные кабинеты, дизайн-система и интерактивные прототипы в Figma.</p>
+          <div class="pills"><span>B2B UX</span><span>Figma</span><span>Design System</span><span>Prototyping</span></div>
+        </div>
+        <a href="https://www.figma.com" target="_blank" rel="noopener" class="modal__link-btn">Figma ↗</a>
+      </div>
+
+      <div class="modal__project-item">
+        <div class="modal__project-thumb">
+          <img src="./assets/ecostep.png" alt="Eco-Step" loading="lazy">
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>Eco-Step App — Интерфейс для велосипедистов</strong>
+            <span class="badge badge--green">Mobile UI</span>
+          </div>
+          <p>Мобильный интерфейс: запись эко-маршрутов, трекинг активности, социальное сообщество велосипедистов и система наград.</p>
+          <div class="pills"><span>App Design</span><span>Mobile UI</span><span>Figma</span></div>
+        </div>
+        <a href="https://www.figma.com/design/2u0JYeK7QvPeYxCvcYyHtL/ecostep" target="_blank" rel="noopener" class="modal__link-btn">Figma ↗</a>
+      </div>
+
+      <div class="modal__project-item">
+        <div class="modal__project-thumb">
+          <img src="./assets/midquest.png" alt="Midnight Choice" loading="lazy">
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>Midnight Choice — Квест выбора кино</strong>
+            <span class="badge badge--purple">Dark UI</span>
+          </div>
+          <p>Интерактивный темный дизайн сервиса выбора фильмов под настроение с атмосферой кино и плавными переходами.</p>
+          <div class="pills"><span>Dark Aesthetic</span><span>Interactive UI</span><span>Figma</span></div>
+        </div>
+        <a href="https://www.figma.com/design/zcN1ZENeexrt7Re0UzFFOS/" target="_blank" rel="noopener" class="modal__link-btn">Figma ↗</a>
+      </div>
+
+      <div class="modal__project-item">
+        <div class="modal__project-thumb modal__project-thumb--placeholder">
+          <div class="modal__project-thumb-text">Точка Ритма<br>Яндекс</div>
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>Точка ритма — Музыкальный портал</strong>
+            <span class="badge">Яндекс Практикум</span>
+          </div>
+          <p>Проект в Яндекс Практикуме: тёмная эстетика, музыкальный плеер, умные рекомендации и плейлисты.</p>
+          <div class="pills"><span>UI/UX</span><span>Figma</span><span>Яндекс Практикум</span></div>
+        </div>
+        <a href="https://www.figma.com" target="_blank" rel="noopener" class="modal__link-btn">Figma ↗</a>
+      </div>
+
+      <div class="modal__project-item">
+        <div class="modal__project-thumb modal__project-thumb--placeholder">
+          <div class="modal__project-thumb-text">РГБ BIM<br>Revit/Blender</div>
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>Римский дворик РГБ — BIM проект реконструкции</strong>
+            <span class="badge badge--blue">Архитектура</span>
+          </div>
+          <p>Моделирование в Revit, архитектурная визуализация в Blender и полная строительная документация для Российской государственной библиотеки.</p>
+          <div class="pills"><span>BIM</span><span>Revit</span><span>Blender</span><span>РГБ</span></div>
+        </div>
+        <a href="https://t.me/aimovl" target="_blank" rel="noopener" class="modal__link-btn">Подробнее ↗</a>
+      </div>
+
+      <div class="modal__project-item">
+        <div class="modal__project-thumb modal__project-thumb--placeholder">
+          <div class="modal__project-thumb-text">BOYS 100%<br>Merch &amp; Print</div>
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>BOYS 100% — Мерч и брендинг для мото-братства</strong>
+            <span class="badge">Мерч Тула</span>
+          </div>
+          <p>Разработка стикерпаков, айдентики и мерча для мотоциклистов Тулы с полной предпечатной подготовкой.</p>
+          <div class="pills"><span>Merch</span><span>Stickers</span><span>Pre-press</span></div>
+        </div>
+        <a href="https://t.me/aimovl" target="_blank" rel="noopener" class="modal__link-btn">Заказать ↗</a>
+      </div>
+
+      <div class="modal__project-item">
+        <div class="modal__project-thumb">
+          <img src="./assets/Ypakovka1.png" alt="Упаковка" loading="lazy">
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>Дизайн упаковки «Мармелад Еремин» &amp; «Малинка»</strong>
+            <span class="badge badge--orange">Полиграфия</span>
+          </div>
+          <p>Дизайн серии упаковок кондитерской продукции, допечатная подготовка (вылеты под обрез, печатные профили CMYK).</p>
+          <div class="pills"><span>Упаковка</span><span>Полиграфия</span><span>Print Ready</span></div>
+        </div>
+        <a href="./assets/Ypakovka1.png" target="_blank" rel="noopener" class="modal__link-btn">Макет ↗</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: КОНТЕНТ И СООБЩЕСТВА -->
+<div class="modal" id="modal-content" role="dialog" aria-hidden="true">
+  <div class="modal__overlay" data-close="modal-content"></div>
+  <div class="modal__content">
+    <button class="modal__close" data-close="modal-content" aria-label="Закрыть">&times;</button>
+    <div class="modal__header">
+      <div class="icon icon--orange" style="width:44px; height:44px; margin:0 auto 16px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+      </div>
+      <h2>Контент и сообщества</h2>
+      <p class="modal__subtitle">Комьюнити, видео-продакшн, инфографика и социальные проекты</p>
+    </div>
+
+    <div class="modal__project-list">
+      
+      <div class="modal__project-item">
+        <div class="modal__project-thumb modal__project-thumb--placeholder">
+          <div class="modal__project-thumb-text">YouTube<br>@burgerdom6</div>
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>Warpath Wiki YouTube — Видеообзоры и аналитика</strong>
+            <span class="badge badge--purple">20 000+ просмотров</span>
+          </div>
+          <p>Видеоматериалы для 10 000+ участников комьюнити (Desert Battle 20k+ kills, обзоры дорожных карт игры).</p>
+          <div class="pills"><span>YouTube</span><span>20k+ Views</span><span>Gaming Media</span></div>
+        </div>
+        <a href="https://www.youtube.com/@burgerdom6" target="_blank" rel="noopener" class="modal__link-btn">YouTube ↗</a>
+      </div>
+
+      <div class="modal__project-item">
+        <div class="modal__project-thumb modal__project-thumb--placeholder">
+          <div class="modal__project-thumb-text">WB Rich<br>Infographics</div>
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>Wildberries Rich Content — Карточки товаров</strong>
+            <span class="badge badge--green">Рост CTR</span>
+          </div>
+          <p>Инфографика и Rich-контент для карточек экшн-камер GoPro и товаров для зимней рыбалки. Заметный рост CTR.</p>
+          <div class="pills"><span>E-commerce</span><span>Wildberries</span><span>Infographic</span></div>
+        </div>
+        <a href="https://t.me/aimovl" target="_blank" rel="noopener" class="modal__link-btn">Заказать ↗</a>
+      </div>
+
+      <div class="modal__project-item">
+        <div class="modal__project-thumb modal__project-thumb--placeholder">
+          <div class="modal__project-thumb-text">СИМ ПДД<br>Плакаты</div>
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>Безопасность СИМ и велодвижения</strong>
+            <span class="badge">Социальный проект</span>
+          </div>
+          <p>Медиа-пак, социальные плакаты и понятная инфографика правил дорожного движения для пользователей самокатов и велосипедов.</p>
+          <div class="pills"><span>Social Graphic</span><span>Placards</span><span>Infographics</span></div>
+        </div>
+        <a href="https://t.me/aimovl" target="_blank" rel="noopener" class="modal__link-btn">Подробнее ↗</a>
+      </div>
+
+      <div class="modal__project-item">
+        <div class="modal__project-thumb modal__project-thumb--placeholder">
+          <div class="modal__project-thumb-text">City Posters<br>Type Design</div>
+        </div>
+        <div class="modal__project-info">
+          <div class="modal__project-top">
+            <strong>City Collection — Постеры и рекламные кампании</strong>
+            <span class="badge">Типографика</span>
+          </div>
+          <p>Графический дизайн флаеров, выверенная типографика и подготовка печатной рекламной продукции.</p>
+          <div class="pills"><span>Graphic Design</span><span>Posters</span><span>Typography</span></div>
+        </div>
+        <a href="https://t.me/aimovl" target="_blank" rel="noopener" class="modal__link-btn">Подробнее ↗</a>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
