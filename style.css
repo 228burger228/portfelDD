@@ -5,8 +5,6 @@
    Rich Modals with Mini-Thumbnails Inside
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
 :root {
   --bg: #f8f8f6;
   --white: #ffffff;
@@ -1209,11 +1207,15 @@ h2 {
 }
 
 .modal__close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  position: sticky;
+  top: 16px;
+  float: right;
+  z-index: 20;
+  margin-top: -16px;
+  margin-right: -16px;
+  margin-bottom: -36px;
   background: #f5f5f5;
-  border: none;
+  border: 1px solid #e5e5e2;
   font-size: 24px;
   color: #888888;
   cursor: pointer;
@@ -1224,6 +1226,7 @@ h2 {
   justify-content: center;
   border-radius: 50%;
   transition: var(--transition);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .modal__close:hover {
@@ -1468,6 +1471,10 @@ h2 {
     gap: 36px;
   }
 
+  .hero__main {
+    order: -1;
+  }
+
   .person-card {
     width: 100%;
     max-width: 500px;
@@ -1482,25 +1489,6 @@ h2 {
   .footer__inner {
     justify-content: center;
     text-align: center;
-  }
-
-  .letterhead {
-    padding: 24px;
-  }
-
-  .letterhead__header {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .letterhead__doc-num {
-    text-align: left;
-  }
-
-  .letterhead__footer {
-    flex-direction: column;
-    gap: 20px;
-    align-items: flex-start;
   }
 }
 

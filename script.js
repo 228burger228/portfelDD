@@ -1,24 +1,43 @@
 /**
  * 228burger228 — Interactive Studio Functionality
- * Modals (Portfolio & Official Letter), Mobile Drawer, Scroll Progress,
- * Quick Copy, Inquiry Presets, Back-to-top, Stats Counter
+ * Optimized Scroll Pipeline (rAF + Cached Layout Metrics)
+ * Accessible Modals (Focus Trap, Esc, Return Focus)
+ * Smooth Stats Counter, Mobile Drawer, Quick Copy & Presets
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Scroll Progress Bar & Header Shadow
+  // ─── 1. CACHED LAYOUT METRICS & SMOOTH SCROLL PIPELINE ─────────────────────
   const progressBar = document.getElementById('scroll-progress');
   const header = document.getElementById('header');
   const backToTop = document.getElementById('back-to-top');
+  const navLinks = document.querySelectorAll('.nav__link');
+  const sections = Array.from(document.querySelectorAll('section[id]'));
 
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY;
+  let sectionBounds = [];
+  function updateSectionBounds() {
+    sectionBounds = sections.map(sec => ({
+      id: sec.getAttribute('id'),
+      top: sec.offsetTop,
+      bottom: sec.offsetTop + sec.offsetHeight
+    }));
+  }
+  updateSectionBounds();
+  window.addEventListener('resize', updateSectionBounds, { passive: true });
+
+  let ticking = false;
+  let lastScrollY = window.scrollY;
+
+  function onScrollFrame() {
+    const scrollTop = lastScrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
 
+    // Progress Bar
     if (progressBar) {
       progressBar.style.width = `${progress}%`;
     }
 
+    // Header Shadow
     if (header) {
       if (scrollTop > 20) {
         header.classList.add('scrolled');
@@ -27,12 +46,45 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    // Back to Top Button
     if (backToTop) {
       if (scrollTop > 400) {
         backToTop.classList.add('visible');
       } else {
         backToTop.classList.remove('visible');
       }
+    }
+
+    // Active Nav Spy
+    const scrollPos = scrollTop + 180;
+    let currentId = '';
+    for (let i = 0; i < sectionBounds.length; i++) {
+      const sb = sectionBounds[i];
+      if (scrollPos >= sb.top && scrollPos < sb.bottom) {
+        currentId = sb.id;
+        break;
+      }
+    }
+
+    if (currentId) {
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === `#${currentId}`) {
+          link.classList.add('nav__link--active');
+        } else {
+          link.classList.remove('nav__link--active');
+        }
+      });
+    }
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    lastScrollY = window.scrollY;
+    if (!ticking) {
+      window.requestAnimationFrame(onScrollFrame);
+      ticking = true;
     }
   }, { passive: true });
 
@@ -42,38 +94,60 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Modal Windows (Portfolio & Recommendation Letter)
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href && href !== '#' && document.querySelector(href)) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ─── 2. MODAL WINDOWS (PORTFOLIO & RECOMMENDATION LETTER) ──────────────────
   const modalTriggers = document.querySelectorAll('[data-modal]');
-  const modals = document.querySelectorAll('.modal');
+  let lastFocusedElement = null;
 
   function openModal(modalId) {
     const modal = document.getElementById(modalId);
-    if (modal) {
-      modal.classList.add('active');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      const closeBtn = modal.querySelector('.modal__close');
-      if (closeBtn) closeBtn.focus();
+    if (!modal) return;
+
+    lastFocusedElement = document.activeElement;
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+
+    // Prevent body scroll and preserve scrollbar width to prevent layout shift
+    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = 'hidden';
+    if (scrollBarWidth > 0) {
+      document.body.style.paddingRight = `${scrollBarWidth}px`;
     }
+
+    const closeBtn = modal.querySelector('.modal__close');
+    if (closeBtn) closeBtn.focus();
   }
 
   function closeModal(modal) {
-    if (modal) {
-      modal.classList.remove('active');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
+
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+      lastFocusedElement.focus();
     }
   }
 
   modalTriggers.forEach(trigger => {
-    // Click handler
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
       const modalType = trigger.getAttribute('data-modal');
       openModal(`modal-${modalType}`);
     });
 
-    // Keyboard accessibility (Enter / Space)
     trigger.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -83,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Close handlers
   document.querySelectorAll('[data-close]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -93,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Close on Escape
+  // Close on Escape & Trap Focus
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       const activeModal = document.querySelector('.modal.active');
@@ -104,11 +177,30 @@ document.addEventListener('DOMContentLoaded', () => {
       if (mobileMenu && mobileMenu.classList.contains('active')) {
         mobileMenu.classList.remove('active');
         document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
+      }
+    }
+
+    if (e.key === 'Tab') {
+      const activeModal = document.querySelector('.modal.active');
+      if (activeModal) {
+        const focusable = activeModal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
       }
     }
   });
 
-  // 3. Mobile Menu Drawer
+  // ─── 3. MOBILE MENU DRAWER ────────────────────────────────────────────────
   const mobileBurger = document.getElementById('mobile-burger');
   const mobileMenu = document.getElementById('mobile-menu');
   const mobileLinks = document.querySelectorAll('.mobile-menu__link');
@@ -130,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Quick Copy Telegram Handle
+  // ─── 4. QUICK COPY TELEGRAM HANDLE ─────────────────────────────────────────
   const copyBtn = document.getElementById('copy-tg-btn');
   const copyText = document.getElementById('copy-text');
 
@@ -138,7 +230,18 @@ document.addEventListener('DOMContentLoaded', () => {
     copyBtn.addEventListener('click', async () => {
       const handle = '@aimovl';
       try {
-        await navigator.clipboard.writeText(handle);
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(handle);
+        } else {
+          const ta = document.createElement('textarea');
+          ta.value = handle;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+        }
         copyBtn.classList.add('copied');
         copyText.textContent = 'Скопировано в буфер! ✓';
         setTimeout(() => {
@@ -146,12 +249,12 @@ document.addEventListener('DOMContentLoaded', () => {
           copyText.textContent = 'Скопировать @aimovl';
         }, 2200);
       } catch (err) {
-        prompt('Скопируйте никнейм в Telegram:', handle);
+        copyText.textContent = '@aimovl (выделите и скопируйте)';
       }
     });
   }
 
-  // 5. Preset Inquiry Tags in CTA
+  // ─── 5. PRESET INQUIRY TAGS IN CTA ─────────────────────────────────────────
   const presetTags = document.querySelectorAll('.preset-tag');
   const mainCtaBtn = document.getElementById('main-cta-btn');
 
@@ -164,47 +267,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (mainCtaBtn && msg) {
         const encoded = encodeURIComponent(msg);
         mainCtaBtn.setAttribute('href', `https://t.me/aimovl?text=${encoded}`);
-        mainCtaBtn.querySelector('span').textContent = `Обсудить задачу: ${tag.textContent.trim()}`;
+        const span = mainCtaBtn.querySelector('span');
+        if (span) {
+          span.textContent = `Обсудить: ${tag.textContent.replace(/^[^\w\sа-яА-ЯёЁ]+/, '').trim()}`;
+        }
       }
     });
   });
 
-  // 6. Smooth Scroll & Active Nav Spy
-  const navLinks = document.querySelectorAll('.nav__link');
-  const sections = document.querySelectorAll('section[id]');
-
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href !== '#' && document.querySelector(href)) {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    const scrollPos = window.scrollY + 180;
-
-    sections.forEach(section => {
-      const top = section.offsetTop;
-      const height = section.offsetHeight;
-      if (scrollPos >= top && scrollPos < top + height) {
-        current = section.getAttribute('id');
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove('nav__link--active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('nav__link--active');
-      }
-    });
-  }, { passive: true });
-
-  // 7. Interactive Stats Count-up on Viewport
+  // ─── 6. INTERACTIVE STATS COUNT-UP WITH SMOOTH EASING ──────────────────────
   const statNumbers = document.querySelectorAll('.stat-pill__num[data-count]');
   let statsTriggered = false;
 
@@ -216,23 +287,31 @@ document.addEventListener('DOMContentLoaded', () => {
           const target = parseInt(numEl.getAttribute('data-count'), 10);
           if (isNaN(target)) return;
 
-          let currentVal = 0;
+          const isAudience = target === 10;
           const duration = 1200;
-          const stepTime = Math.max(Math.floor(duration / target), 30);
+          const startTime = performance.now();
 
-          const timer = setInterval(() => {
-            currentVal += 1;
-            if (target >= 90) {
-              currentVal = Math.min(target, currentVal + 4);
-            }
-            numEl.textContent = `${currentVal}+`;
+          function step(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease-out cubic
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            const current = Math.round(target * easeOut);
 
-            if (currentVal >= target) {
-              clearInterval(timer);
-              numEl.textContent = `${target}+`;
-              if (target === 10) numEl.textContent = '10k+';
+            if (isAudience) {
+              numEl.textContent = `${current}k+`;
+            } else {
+              numEl.textContent = `${current}+`;
             }
-          }, stepTime);
+
+            if (progress < 1) {
+              window.requestAnimationFrame(step);
+            } else {
+              numEl.textContent = isAudience ? `${target}k+` : `${target}+`;
+            }
+          }
+
+          window.requestAnimationFrame(step);
         });
       }
     });
