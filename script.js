@@ -321,4 +321,202 @@ document.addEventListener('DOMContentLoaded', () => {
   if (heroStats) {
     statsObserver.observe(heroStats);
   }
+
+  // ─── 7. INTERACTIVE QUOTE CALCULATOR (CODECRAFTERS REACTIVE PROXY MODEL) ───
+  const calcContainer = document.getElementById('calculator');
+  if (calcContainer) {
+    const serviceTypes = {
+      landing: {
+        title: 'Лендинг / Промо-сайт',
+        basePrice: 45000,
+        baseDays: 6,
+        daysText: '5–7 рабочих дней',
+        desc: 'Продуктовый лендинг с конверсионной структурой, микроанимациями и Lighthouse 98+.'
+      },
+      webapp: {
+        title: 'Веб-сервис / MVP под ключ',
+        basePrice: 120000,
+        baseDays: 16,
+        daysText: '14–20 рабочих дней',
+        desc: 'Полноценный веб-сервис: фронтенд, API, базы данных, личные кабинеты.'
+      },
+      bot: {
+        title: 'Telegram AI-бот & Парсер',
+        basePrice: 50000,
+        baseDays: 7,
+        daysText: '5–8 рабочих дней',
+        desc: 'Автономный бот 24/7, парсинг данных, Gemini/LLM-интеграция, лидогенерация.'
+      },
+      design: {
+        title: 'UI/UX Дизайн-система',
+        basePrice: 40000,
+        baseDays: 6,
+        daysText: '5–7 рабочих дней',
+        desc: 'Исследование CJM, интерактивные прототипы в Figma, UI-kit и компоненты.'
+      }
+    };
+
+    const addonOptions = {
+      cms: { title: 'Панель управления (CMS)', price: 15000, days: 2 },
+      auth: { title: 'Личный кабинет & Авторизация', price: 25000, days: 3 },
+      payment: { title: 'Платежный шлюз / Оплата', price: 20000, days: 2 },
+      ai: { title: 'AI-ассистент / RAG-вектор', price: 35000, days: 4 },
+      scraping: { title: 'Парсер бирж и данных 24/7', price: 20000, days: 2 },
+      seo: { title: 'SEO, Schema.org & llms.txt', price: 15000, days: 1 }
+    };
+
+    function createReactiveStore(initialState, onUpdate) {
+      const handler = {
+        set(target, prop, value) {
+          target[prop] = value;
+          onUpdate(target);
+          return true;
+        }
+      };
+      return new Proxy(initialState, handler);
+    }
+
+    const state = createReactiveStore({
+      type: 'landing',
+      addons: new Set(['seo']),
+      urgency: 'standard'
+    }, renderCalculator);
+
+    const typeCards = calcContainer.querySelectorAll('.calc-type-card');
+    const addonChips = calcContainer.querySelectorAll('.calc-addon-chip');
+    const urgencyBtns = calcContainer.querySelectorAll('.calc-urgency-btn');
+
+    const priceEl = document.getElementById('calc-total-price');
+    const daysEl = document.getElementById('calc-total-days');
+    const addonsListEl = document.getElementById('calc-addons-list');
+    const tgLinkEl = document.getElementById('calc-tg-link');
+    const copyCalcBtn = document.getElementById('calc-copy-btn');
+
+    function calculateTotal(currentState) {
+      const base = serviceTypes[currentState.type] || serviceTypes.landing;
+      let sum = base.basePrice;
+      let days = base.baseDays;
+
+      currentState.addons.forEach(key => {
+        if (addonOptions[key]) {
+          sum += addonOptions[key].price;
+          days += addonOptions[key].days;
+        }
+      });
+
+      if (currentState.urgency === 'urgent') {
+        sum = Math.round((sum * 1.25) / 1000) * 1000;
+        days = Math.max(3, Math.round(days * 0.7));
+      }
+
+      return {
+        sum,
+        formattedSum: sum.toLocaleString('ru-RU') + ' ₽',
+        daysText: Math.max(2, days - 1) + '–' + (days + 1) + ' раб. дней',
+        serviceName: base.title
+      };
+    }
+
+    function renderCalculator(currentState) {
+      const result = calculateTotal(currentState);
+
+      if (priceEl) priceEl.textContent = result.formattedSum;
+      if (daysEl) daysEl.textContent = result.daysText;
+
+      typeCards.forEach(card => {
+        const typeKey = card.getAttribute('data-type');
+        card.classList.toggle('active', typeKey === currentState.type);
+      });
+
+      addonChips.forEach(chip => {
+        const addonKey = chip.getAttribute('data-addon');
+        chip.classList.toggle('active', currentState.addons.has(addonKey));
+      });
+
+      urgencyBtns.forEach(btn => {
+        const urgKey = btn.getAttribute('data-urgency');
+        btn.classList.toggle('active', urgKey === currentState.urgency);
+      });
+
+      if (addonsListEl) {
+        addonsListEl.innerHTML = '';
+        currentState.addons.forEach(key => {
+          if (addonOptions[key]) {
+            const tag = document.createElement('span');
+            tag.className = 'calc-hud__addon-tag';
+            tag.textContent = '+ ' + addonOptions[key].title;
+            addonsListEl.appendChild(tag);
+          }
+        });
+        if (currentState.addons.size === 0) {
+          addonsListEl.innerHTML = '<span style="font-size:12px;color:var(--muted);">Базовая спецификация (без доп. опций)</span>';
+        }
+      }
+
+      const selectedAddonsTitles = Array.from(currentState.addons)
+        .map(k => addonOptions[k] ? addonOptions[k].title : '')
+        .filter(Boolean);
+
+      const tgMessage = 'Здравствуйте! Рассчитал предварительную смету на portfelDD:\n' +
+        '— Проект: ' + result.serviceName + '\n' +
+        '— Модули: ' + (selectedAddonsTitles.length ? selectedAddonsTitles.join(', ') : 'Базовая спецификация') + '\n' +
+        '— Срочность: ' + (currentState.urgency === 'urgent' ? 'Экспресс запуск (-30% времени)' : 'Стандартный спринт') + '\n' +
+        '— Оценка сметы: ~' + result.formattedSum + '\n' +
+        '— Срок: ~' + result.daysText + '\n' +
+        'Хочу обсудить детали и запустить проект.';
+
+      if (tgLinkEl) {
+        tgLinkEl.setAttribute('href', 'https://t.me/aimovl?text=' + encodeURIComponent(tgMessage));
+      }
+
+      if (copyCalcBtn) {
+        copyCalcBtn.onclick = async () => {
+          try {
+            await navigator.clipboard.writeText(tgMessage);
+            const orig = copyCalcBtn.innerHTML;
+            copyCalcBtn.innerHTML = '<span>✓</span> Смета скопирована!';
+            setTimeout(() => { copyCalcBtn.innerHTML = orig; }, 2200);
+          } catch(e) {
+            prompt('Скопируйте текст сметы:', tgMessage);
+          }
+        };
+      }
+    }
+
+    typeCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const type = card.getAttribute('data-type');
+        if (type && serviceTypes[type]) {
+          state.type = type;
+        }
+      });
+    });
+
+    addonChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const addon = chip.getAttribute('data-addon');
+        if (addon && addonOptions[addon]) {
+          const newAddons = new Set(state.addons);
+          if (newAddons.has(addon)) {
+            newAddons.delete(addon);
+          } else {
+            newAddons.add(addon);
+          }
+          state.addons = newAddons;
+        }
+      });
+    });
+
+    urgencyBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const urg = btn.getAttribute('data-urgency');
+        if (urg) {
+          state.urgency = urg;
+        }
+      });
+    });
+
+    renderCalculator(state);
+  }
+
 });
